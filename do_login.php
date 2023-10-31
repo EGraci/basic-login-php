@@ -9,14 +9,15 @@ if(isset($_POST['submit'])){
     $akun = $conn->query("SELECT * FROM akun WHERE username = '$username' AND password = '$password' LIMIT 1");
     if($akun->num_rows > 0){
         $data = $akun->fetch_assoc();
-        $_SESSION['level'] = $data['level'];
         // dashboard yang di inginkan
         if($data['level'] == 1){
-            header("Location: localhost/login/akses1.php");
+            $_SESSION['level'] = $data['level'];
+            header("Location: akses1.php");
         }else if($data['level'] == 2){
-            header("Location: localhost/login/akses2.php");
+            $_SESSION['level'] = $data['level'];
+            header("Location: akses2.php");
         }else{
-            header("Location: localhost/login/login.php");
+            header("Location: login.php");
         }
 
     }else{

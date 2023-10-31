@@ -13,7 +13,7 @@ if(isset($_SESSION['level'])){
 }else{
     $_SESSION['level'] = 0;
 } ?>
-<form action="do_login.php">
+<form action="do_login.php" method="post">
     <input type="text" name="username" />
     <br>
     <input type="text" name="password">
